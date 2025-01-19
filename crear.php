@@ -6,20 +6,34 @@
     $consulta = "SELECT * FROM album";
     $resultado = mysqli_query($db, $consulta); //toma 2 parametros: la database y la consulta, en este caso a la tabla album
 
+    //revision de errores con sus variables
+    $errores = [];
+    $nombre = "";
+    $id_usuario = 1;
+
+
+
+    //fin de revision/validacion errores en campos
     if($_SERVER["REQUEST_METHOD"] === "POST"){
 
         //recoje los valores de los campos
-        $nombre = $_POST["nombre"];
-        $id_usuario = 1;
+        $nombre = mysqli_real_escape_string($db, $_POST["nombre"]);
 
-        //insertarlos a la db:
-        $query = "INSERT INTO album (nombre, id_usuario) VALUES ('$nombre', '$id_usuario')";
-
-        $resultado = mysqli_query($db, $query);
-
-        if($resultado){
-            echo "Insertado correctamente en db";
+        if(!$nombre || (strlen($nombre) < 3)){
+            $errores[] = "El campo de nombre no puede estar vacío ni tener menos de 3 caraceteres...";
         }
+
+        if(!$errores){//si no hay errores, entonces:
+            //insertarlos a la db:
+            $query = "INSERT INTO album (nombre, id_usuario) VALUES ('$nombre', '$id_usuario')";
+
+            $resultado = mysqli_query($db, $query);
+
+            if($resultado){
+                echo "Insertado correctamente en db";
+            }
+        }
+  
     }
 
 ?>
@@ -39,6 +53,12 @@
                 <button class="forms-btn" type="submit">Crear</button>
 
             </form><!-- FIN FORMS -->
+
+            <?php foreach($errores as $error):?>
+                <div class="error">
+                    <?php echo $error; ?>
+                </div>
+            <?php endforeach; ?>
             
         </main><!-- FIN MAIN -->
     </div><!-- FIN PRINCIPAL -->
