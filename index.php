@@ -6,8 +6,8 @@
 
 ?>
         <main class="main">
-            <h1>Populares</h1>
             <div class="carrusel">
+                <h1>Populares</h1>
                 <div class="carrusel-img">
                     <img src="build/img/p1.webp" alt="">
                     <img src="build/img/p4.jpg" alt="">
@@ -17,8 +17,8 @@
                 </div>
             </div>
 
-            <h1>Año nuevo</h1>
             <div class="carrusel">
+                <h1>Año nuevo</h1>
                 <div class="carrusel-img">
                     <img src="build/img/ny1.jpg" alt="">
                     <img src="build/img/ny2.jpg" alt="">
@@ -26,8 +26,8 @@
                 </div>
             </div>
 
-            <h1>Navidad</h1>
             <div class="carrusel">
+                <h1>Navidad</h1>
                 <div class="carrusel-img">
                     <img src="build/img/n1.jpg" alt="">
                     <img src="build/img/n2.jpg" alt="">

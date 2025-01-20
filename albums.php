@@ -28,7 +28,12 @@
                         echo "<p>No tienes álbumes disponibles.</p>"; // Mensaje si no hay álbumes
                     }
                 ?>
-            </div>  
+            </div>
+
+            <!-- <div class='album'>
+                <h3>Album prueba</h3>
+                <a href="">Ver imágenes</a>
+            </div> -->
         </main><!-- FIN MAIN -->
     </div><!-- FIN PRINCIPAL -->
 </body>
