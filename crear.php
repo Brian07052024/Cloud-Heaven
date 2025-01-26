@@ -1,5 +1,5 @@
 <?php
-    require "includes/templates/header.php";
+    // require "includes/templates/header.php";
     require "config/database.php";
     $db = conectarDB();//osea tiene que ser true el valor desde la database en /config
 
@@ -30,12 +30,12 @@
             $resultado = mysqli_query($db, $query);
 
             if($resultado){
-                echo "Insertado correctamente en db";
+                header('Location: index.php?mensaje=1');
             }
         }
   
     }
-
+    require "includes/templates/header.php";
 ?>
 
         <main class="main-crear">

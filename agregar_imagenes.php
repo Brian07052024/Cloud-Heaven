@@ -1,5 +1,4 @@
 <?php
-    require "includes/templates/header.php";
     require "config/database.php";
     $db = conectarDB();//osea tiene que ser true el valor desde la database en /config
     $consulta = "SELECT * FROM imagen";
@@ -23,7 +22,18 @@
         if(!$descripcion || (strlen($descripcion) > 50)){
             $errores[] = "El campo descripcion no puede estar vacío ni tener más de 50 caraceteres.";
         }
+
+        if(!$imagen["name"]){
+            $errores[] = "La imagen es obligatoria";
+        }
         
+        //validar tamaño
+        $bitsToKilobits = 1000 * 100;
+
+        if($imagen["size"] > $bitsToKilobits){
+            $errores[] = "La imagen es muy pesada";
+        }
+
         if(empty($errores)){
 
             $carpetaImagenes = __DIR__ . '/imagenes/'; //creamos la carpeta donde estaran las imagenes o ruta
@@ -48,6 +58,8 @@
             }
         }
     }
+    require "includes/templates/header.php";
+
 ?>
         <main class="">
             <h1 class="add-img">Agregar Imagenes</h1>
