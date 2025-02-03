@@ -1,0 +1,25 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    .imagen{
+        img{
+            width: 25rem;
+        }
+        .imagen_txt{
+            word-wrap: break-word;
+            overflow-wrap: break-word; /* Asegura que el texto se divida si es largo */
+            color: v.$blanco;
+            background-color: v.$negro;
+            // border-bottom-right-radius: 2rem;
+            // border-bottom-left-radius: 2rem;
+            padding: 0.5rem;
+        }
+    }
+    
+    
+}
+

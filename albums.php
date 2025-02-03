@@ -1,39 +1,42 @@
 <?php
-    require "includes/templates/header.php";
+    //IMPORTAR LA BASE DE DATOS
     require "config/database.php";
     $db = conectarDB();//osea tiene que ser true el valor desde la database en /config
-
     $id_sesion = 1;
-
+    //QUERY/CONSULTA
     $consulta = "SELECT * FROM album WHERE id_usuario = $id_sesion";
     $resultado = mysqli_query($db, $consulta);
+    
 
    
-
+    require "includes/templates/header.php";
 ?>
         <main class="contenedor">
             <div class="contenedor-albums">
-                <?php
-                    // Verificar si la consulta tuvo resultados
-                    if (mysqli_num_rows($resultado) > 0) {
-                        // Recorrer los resultados de la consulta y mostrarlos
-                        while ($album = mysqli_fetch_assoc($resultado)) {
-                            // Mostrar cada álbum dentro de un div
-                            echo "<div class='album'>";
-                            echo "<h3>" . htmlspecialchars($album['nombre']) . "</h3>"; // Muestra el nombre del álbum
-                            echo "<a href='ver_album.php?id=" . $album['id'] . "'>Ver imágenes</a>"; // Enlace para ver las imágenes del álbum
-                            echo "</div>";
-                        }
-                    } else {
-                        echo "<p>No tienes álbumes disponibles.</p>"; // Mensaje si no hay álbumes
-                    }
-                ?>
+                <?php if (mysqli_num_rows($resultado) > 0): ?>
+                    
+                    <?php while ($album = mysqli_fetch_assoc($resultado)): ?>
+
+                        <div class='album'>
+                            <h3> <?php echo $album["nombre"] ?> </h3> 
+                            <a href='ver_album.php?id_album=<?php echo $album["id"] ?>'>Ver imágenes</a>
+                            
+                            <a href='#' class='btn-eliminar'>
+                                <svg xmlns='http://www.w3.org/2000/svg' width='40' height='32' fill='currentColor' class='bi bi-dash' viewBox='0 0 16 16'>
+                                    <path d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8'/>
+                                </svg>
+                            </a>
+                        </div>
+
+                    <?php endwhile; ?>
+
+                <?php else: ?>
+                    <p>No tienes álbumes disponibles.</p> <!-- Mensaje si no hay álbumes -->
+                <?php endif; ?>
+
             </div>
 
-            <!-- <div class='album'>
-                <h3>Album prueba</h3>
-                <a href="">Ver imágenes</a>
-            </div> -->
+            
         </main><!-- FIN MAIN -->
     </div><!-- FIN PRINCIPAL -->
 </body>

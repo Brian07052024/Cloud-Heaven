@@ -1,5 +1,5 @@
-@use "../base/variables"as v;
-@use "../base/mixins"as m;
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
 
 
 .contenedor-albums {
@@ -23,8 +23,13 @@
     width: 25rem;
     height: 15rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    h3{
+        font-size: 2rem;
+        font-weight: bold;
+    }
     a{
         color: v.$cian;
+        font-size: 1.6rem;
     }
     &::before{
         content: "";
@@ -36,6 +41,15 @@
         top: -5%;
         // border-top-left-radius: 2rem;
         border-top-right-radius: 2rem;
+        
+    }
+
+    .btn-eliminar{
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 1rem;
+        color: v.$rojo;
         
     }
 }

@@ -27,3 +27,29 @@
         height: 25rem;
     }
 }
+
+.nav_superior{
+    display: flex;
+    margin: 2rem;
+    ul{
+        display: flex;
+        width: 100%;
+        position: relative;
+        
+        li{
+            display: flex;
+            gap: 5rem;
+            
+            a{
+                color: v.$blanco; 
+            }
+            &:last-of-type{
+                margin-right: auto;
+                position: absolute;
+                right: 0;
+            }
+        }
+    }
+
+   
+}

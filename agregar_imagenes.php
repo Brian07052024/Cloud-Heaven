@@ -1,23 +1,22 @@
 <?php
+    //CONECTAR DB
     require "config/database.php";
-    $db = conectarDB();//osea tiene que ser true el valor desde la database en /config
+    $db = conectarDB();
+    //CONSULTA A LA DB
     $consulta = "SELECT * FROM imagen";
-    
     $resultado = mysqli_query($db, $consulta);
     
+
     $errores = [];
     $descripcion = "";
     $imagen = "";
 
-    $id_album = 11;
-
-    $id_usuario = 1;
+    $id_album = 45;//ALBUM EN EL QUE SUPUESTAMENTE ESTAMOS
+    $id_usuario = 1;//SESION ACTIVA
    
     if($_SERVER["REQUEST_METHOD"] === "POST"){
-
         $descripcion = mysqli_real_escape_string($db, $_POST["descripcion"]);
         $imagen = $_FILES["src"];
-        $id_album = 11;
 
         if(!$descripcion || (strlen($descripcion) > 50)){
             $errores[] = "El campo descripcion no puede estar vacío ni tener más de 50 caraceteres.";

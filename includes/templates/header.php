@@ -15,7 +15,7 @@
     <div class="principal">
         <header class="header">
             <a href="index.php" class="logo">
-                <img src="src/img/logo.png" alt="">
+                <img src="src/img/EX-LOGO.png" alt="">
                 <p>Cloud <span>Heaven</span></p>
             </a>
             <nav>

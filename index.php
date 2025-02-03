@@ -1,5 +1,4 @@
 <?php
-    require "includes/templates/header.php";
     require "config/database.php";
     $db = conectarDB();//osea tiene que ser true el valor desde la database en /config
 
@@ -9,7 +8,7 @@
     // var_dump($_GET);
     // echo "</pre>";
 
-
+    require "includes/templates/header.php";
 ?>
         <main class="main">
             <?php if(intval($mensaje) === 1): ?>
