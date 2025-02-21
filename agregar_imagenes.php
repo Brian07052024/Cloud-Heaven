@@ -11,7 +11,7 @@
     $descripcion = "";
     $imagen = "";
 
-    $id_album = 45;//ALBUM EN EL QUE SUPUESTAMENTE ESTAMOS
+    $id_album = 50;//ALBUM EN EL QUE SUPUESTAMENTE ESTAMOS
     $id_usuario = 1;//SESION ACTIVA
    
     if($_SERVER["REQUEST_METHOD"] === "POST"){
@@ -27,11 +27,11 @@
         }
         
         //validar tamaño
-        $bitsToKilobits = 1000 * 100;
+        // $bitsToKilobits = 1000 * 100;
 
-        if($imagen["size"] > $bitsToKilobits){
-            $errores[] = "La imagen es muy pesada";
-        }
+        // if($imagen["size"] > $bitsToKilobits){
+        //     $errores[] = "La imagen es muy pesada";
+        // }
 
         if(empty($errores)){
 
