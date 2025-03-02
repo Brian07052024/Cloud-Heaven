@@ -38,7 +38,7 @@
                             
                             <form class="btn-eliminar" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $album["id"]; ?>">
-                                <input type="submit" value="Eliminar">
+                                <input type="submit" value="Delete">
                             </form>
                             <!-- <a href='#' class='btn-eliminar'>
                                 <svg xmlns='http://www.w3.org/2000/svg' width='40' height='32' fill='currentColor' class='bi bi-dash' viewBox='0 0 16 16'>

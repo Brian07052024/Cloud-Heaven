@@ -72,12 +72,14 @@
 
 
 .error{
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: v.$rojoClaro;
     border: solid 0.2rem v.$rojo;
     border-radius: 2rem;
     color: black;
     animation: error 0.5s ease-in-out;
+    display: flex;
+    font-size: 1rem;
 }
 
 @keyframes error {
@@ -135,4 +137,5 @@
     color: v.$blanco;
     padding: 3rem;
 }
+
 

@@ -4,13 +4,18 @@
 .gallery{
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
     .imagen{
         display: flex;
         flex-direction: column;
         width: min-content;
         img{
-            width: 25rem;
+            width: 20rem;
+            height: auto;
+            &:hover{
+                transition: 0.25s ease scale;
+                scale: 1.05;
+            }
         }
         .imagen_txt{
             color: v.$blanco;

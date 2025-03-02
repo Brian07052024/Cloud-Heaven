@@ -16,6 +16,14 @@
     }
 }
 
+.index-nav{
+    display: flex;
+    gap: 5rem;
+    a{
+        color: v.$blanco;
+    }
+}
+
 
 .carrusel-img{
     display: flex;

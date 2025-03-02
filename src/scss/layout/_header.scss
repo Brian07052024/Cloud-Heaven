@@ -37,6 +37,7 @@
     img{
         max-width: 10rem;
         height: auto;
+        animation: girar 1s ease;
     }
 
     p{
@@ -69,5 +70,14 @@
         background-color: v.$blanco;
         color: v.$negro;
         font-weight: bold;
+    }
+}
+
+@keyframes girar {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
     }
 }

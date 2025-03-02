@@ -37,7 +37,7 @@
                 <?php while($imagen = mysqli_fetch_assoc($resultado)): ?>
                     <div class="imagen">
                         <img src="imagenes/<?php echo $imagen["src"] . ".jpg"; ?>">
-                        <p class="imagen_txt"> <?php echo $imagen["descripcion"] ?> </p>
+                        <!-- <p class="imagen_txt"> <?php echo $imagen["descripcion"] ?> </p> -->
                     </div>
                     
                 <?php endwhile ?>
