@@ -5,19 +5,27 @@
     height: 100vh;
     padding: 1rem;
     box-shadow: 0 0 0.5rem 0 v.$negro;
+    width: max-content;
     nav{
         ul{
             li{
                 display: flex;
                 flex-direction: column;
                 gap: 2rem;
+                // background-color: red
                 a{
                     color: v.$blanco;
                     display: flex;
                     align-items: center;
                     gap: 0.8rem;
                     font-size: 1.5rem
-                    
+                }
+                a:hover{
+                    transition: 0.1s ease transform;
+                    transform: scale(1.1);
+                    &:last-child{
+                        transform: scale(1)
+                    }
                 }
             }
         }
@@ -66,11 +74,7 @@
     justify-content: center;
     font-weight: bold;
     padding: 0 1rem;
-    &:nth-of-type(1){
-        background-color: v.$blanco;
-        color: v.$negro;
-        font-weight: bold;
-    }
+
 }
 
 @keyframes girar {

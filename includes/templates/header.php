@@ -55,7 +55,7 @@
                         </a>
 
                         <div class="log">
-                            <a class="log-btn" href="registro.php">Registrarse</a>
+                            <a class="log-btn" href="registro.php">Inicia</a>
                             <!-- <a class="log-btn" href="">Registrarse</a> -->
                         </div>
                     </li>

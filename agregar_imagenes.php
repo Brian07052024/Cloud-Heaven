@@ -11,7 +11,7 @@
     $descripcion = "";
     $imagen = "";
 
-    $id_album = 50;//ALBUM EN EL QUE SUPUESTAMENTE ESTAMOS
+    $id_album = 53;//ALBUM EN EL QUE SUPUESTAMENTE ESTAMOS
     $id_usuario = 1;//SESION ACTIVA
    
     if($_SERVER["REQUEST_METHOD"] === "POST"){

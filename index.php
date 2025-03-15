@@ -11,7 +11,7 @@
     require "includes/templates/header.php";
 ?>
         <main class="main">
-            <nav>
+            <nav class="navegacion-barra">
                 <ul>
                     <li class="index-nav">
                         <a href="">Crear</a>

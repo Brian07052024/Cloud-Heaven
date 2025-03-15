@@ -18,8 +18,8 @@
    
     require "includes/templates/header.php";
 ?>
-        <main class="contenedor">
-            <nav class="nav_superior">
+        <main class="main">
+            <nav class="nav_superior navegacion-barra">
                 <ul>
                     <li>
                         <a href='#'>Nosotros</a>
@@ -35,7 +35,7 @@
           
             <div class="gallery">
                 <?php while($imagen = mysqli_fetch_assoc($resultado)): ?>
-                    <div class="imagen">
+                    <div class="imagen img-scale">
                         <img src="imagenes/<?php echo $imagen["src"] . ".jpg"; ?>">
                         <!-- <p class="imagen_txt"> <?php echo $imagen["descripcion"] ?> </p> -->
                     </div>
@@ -43,6 +43,5 @@
                 <?php endwhile ?>
             </div>
         </main><!-- FIN MAIN -->
-    </div><!-- FIN PRINCIPAL -->
 </body>
 </html>
