@@ -3,42 +3,49 @@
     $db = conectarDB(); // Asegúrate de que la función existe y retorna una conexión válida
 
     $errores = [];
-    $username = "";
     $email = "";
     $password = "";
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Recolectar datos del formulario
-        $username = mysqli_real_escape_string($db, $_POST["username"] ?? "");
         $email = mysqli_real_escape_string($db, $_POST["email"] ?? "");
         $password = $_POST["password"] ?? "";
 
         // Validaciones
-        if (!$username) {
-            $errores[] = "El campo de usuario está vacío";
-        }
-
         if (!$email) {
             $errores[] = "El campo de email está vacío";
         }
 
         if (!$password) {
             $errores[] = "El campo de contraseña está vacío";
-        } else {
-            // Hashear la contraseña para seguridad
-            $passwordHash = password_hash($password, PASSWORD_BCRYPT);
         }
 
         // Si no hay errores, insertar en la DB
         if (empty($errores)) {
-            $query = "INSERT INTO usuarios (username, email, password) VALUES ('$username', '$email', '$passwordHash')";
+            $query = "SELECT * FROM usuarios WHERE email = '$email'";
             $resultado = mysqli_query($db, $query);
 
-            if ($resultado) {
-                header('Location: index.php');
-                exit;
+            if ($resultado->num_rows) {
+                $usuario = mysqli_fetch_assoc($resultado);
+                //verificar si el password existe o no
+                $auth = password_verify($password, $usuario['password']);
+                if($auth){
+                    //usuario autenticado
+                    // header('Location: indexUser.php');
+                    // exit;
+
+                    session_start();
+                    $_SESSION["usuario"] = $usuario['email'];
+                    $_SESSION["id"] = $usuario['id'];
+                    $_SESSION["login"] = true;
+
+                    header("Location: index.php");
+                }else{
+                    $errores[] = "el password es incorrecto" ;
+                }
+
             } else {
-                $errores[] = "Hubo un error al guardar en la base de datos.";
+                $errores[] = "Usuario no existe";
             }
         }
     }
@@ -67,21 +74,20 @@
         </a>
     </div>
     <div class="login-right">
-        <form class="forms contenedor" method="POST" action="registro.php">
+        <form class="forms contenedor" method="POST" action="login.php">
             <fieldset>
-                <legend>Registro</legend>
-
-                <label for="username">Username:</label>
-                <input id="username" name="username" type="text" placeholder="Tu nombre">
-
+                <legend>Iniciar Sesion</legend>
                 <label for="correo">Correo:</label>
                 <input id="email" name="email" type="email" placeholder="ejemplo: user@org.com">
 
                 <label for="password">contraseña:</label>
                 <input id="password" name="password" type="password" placeholder="contraseña segura">
+                <div class="login-atton">
+                    <p>¿No tienes cuenta? <a href="registro.php"><span>registrate aqui!</span></a></p>  
+                </div>
             </fieldset>
 
-            <button class="forms-btn" type="submit">Registrarme</button>    
+            <button class="forms-btn" type="submit">Iniciar sesion</button>    
         </form>
         <div class="error_container">
             <?php foreach($errores as $error):?>

@@ -1,8 +1,16 @@
 <?php
+    require "includes/funciones.php";
+    $auth = estaAutenticado();
+    if(!$auth){
+        header("Location: login.php");
+    }
     //IMPORTAR LA BASE DE DATOS
     require "config/database.php";
     $db = conectarDB();//osea tiene que ser true el valor desde la database en /config
-    $id_sesion = 1;
+    $id_sesion = intval($_SESSION["id"]);
+
+    // var_dump($_SESSION);
+
     //QUERY/CONSULTA
     $consulta = "SELECT * FROM album WHERE id_usuario = $id_sesion";
     $resultado = mysqli_query($db, $consulta);
@@ -18,12 +26,9 @@
                 header("Location: index.php");
             }
         }
-
-        // echo "<pre>";
-        // var_dump($_POST);
-        // echo "</pre>";    
-    }
    
+    }
+//    $iniciado = true;
     require "includes/templates/header.php";
 ?>
         <main class="contenedor">

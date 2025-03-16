@@ -7,7 +7,7 @@
     // echo "<pre>";
     // var_dump($_GET);
     // echo "</pre>";
-
+    $iniciado = true;
     require "includes/templates/header.php";
 ?>
         <main class="main">

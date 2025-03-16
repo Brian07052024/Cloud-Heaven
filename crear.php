@@ -1,4 +1,9 @@
 <?php
+    require "includes/funciones.php";
+    $auth = estaAutenticado();
+    if(!$auth){
+        header("Location: login.php");
+    }
     // require "includes/templates/header.php";
     require "config/database.php";
     $db = conectarDB();//osea tiene que ser true el valor desde la database en /config
@@ -9,7 +14,7 @@
     //revision de errores con sus variables
     $errores = [];
     $nombre = "";
-    $id_usuario = 1;
+    // $id_usuario = 1;
 
 
 

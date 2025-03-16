@@ -1,4 +1,9 @@
 <?php
+    require "includes/funciones.php";
+    $auth = estaAutenticado();
+    if(!$auth){
+        header("Location: login.php");
+    }
     //CONECTAR DB
     require "config/database.php";
     $db = conectarDB();
@@ -11,8 +16,8 @@
     $descripcion = "";
     $imagen = "";
 
-    $id_album = 53;//ALBUM EN EL QUE SUPUESTAMENTE ESTAMOS
-    $id_usuario = 1;//SESION ACTIVA
+    // $id_album = 53;//ALBUM EN EL QUE SUPUESTAMENTE ESTAMOS
+    // $id_usuario = 1;//SESION ACTIVA
    
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $descripcion = mysqli_real_escape_string($db, $_POST["descripcion"]);

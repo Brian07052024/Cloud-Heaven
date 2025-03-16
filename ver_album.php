@@ -1,8 +1,13 @@
 <?php
+    require "includes/funciones.php";
+    $auth = estaAutenticado();
+    if(!$auth){
+        header("Location: login.php");
+    }
     //CONECTAR A LA DATABASE
     require "config/database.php";
     $db = conectarDB();
-    $id_sesion = 1; //sesion activa
+    // $id_sesion = 1; //sesion activa
     $id_album = intval($_GET["id_album"]);
 
 
@@ -15,7 +20,8 @@
         echo "No se ha encontrado el álbum.";
     }
     
-   
+    // $iniciado = true;
+
     require "includes/templates/header.php";
 ?>
         <main class="main">

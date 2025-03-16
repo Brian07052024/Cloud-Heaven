@@ -1,4 +1,13 @@
 <?php
+    // var_dump($_SESSION);
+    require "includes/funciones.php";
+    $auth = estaAutenticado();
+    if(!$auth){
+        header("Location: login.php");
+    }
+    // var_dump($_SESSION);
+
+
     require "config/database.php";
     $db = conectarDB();//osea tiene que ser true el valor desde la database en /config
 
@@ -7,8 +16,9 @@
     // echo "<pre>";
     // var_dump($_GET);
     // echo "</pre>";
-
+    
     require "includes/templates/header.php";
+
 ?>
         <main class="main">
             <nav class="navegacion-barra">
