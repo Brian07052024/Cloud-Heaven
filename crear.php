@@ -14,7 +14,7 @@
     //revision de errores con sus variables
     $errores = [];
     $nombre = "";
-    // $id_usuario = 1;
+    $id_usuario = intval($_SESSION["id"]);
 
 
 

@@ -16,8 +16,9 @@
     $descripcion = "";
     $imagen = "";
 
-    // $id_album = 53;//ALBUM EN EL QUE SUPUESTAMENTE ESTAMOS
-    // $id_usuario = 1;//SESION ACTIVA
+    $id_album = intval($_POST["id_album"] ?? $_GET["id_album"] ?? 0);
+    // var_dump($id_album);//2020202022 
+    $id_usuario = intval($_SESSION["id"]);
    
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         $descripcion = mysqli_real_escape_string($db, $_POST["descripcion"]);
@@ -80,7 +81,7 @@
                 <div class="atton">
                     <p>¡Crea un increible album y dale un nombre unico para que puedas comenzar a guardar y compartir tantos momentos como quieras!</p>  
                 </div>
-                
+                <input type="hidden" name="id_album" value="<?php echo htmlspecialchars($id_album); ?>">
                 <button class="forms-btn" type="submit">Crear</button>
 
             </form><!-- FIN FORMS -->

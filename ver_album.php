@@ -7,8 +7,9 @@
     //CONECTAR A LA DATABASE
     require "config/database.php";
     $db = conectarDB();
-    // $id_sesion = 1; //sesion activa
     $id_album = intval($_GET["id_album"]);
+    // var_dump($id_album);//2020202022 visooooooooooooon
+
 
 
     //QUERY/CONSULTA
@@ -21,6 +22,19 @@
     }
     
     // $iniciado = true;
+    if($_SERVER["REQUEST_METHOD"] === "POST"){
+        $id = intval($_POST["id"]);
+
+        if($id){
+            $query = "DELETE FROM imagen WHERE id = $id";
+            $resultado = mysqli_query($db, $query);
+
+            if($resultado){
+                header("Location: albums.php");
+            }
+        }
+   
+    }
 
     require "includes/templates/header.php";
 ?>
@@ -34,7 +48,7 @@
                     </li>
                     <li>
                         <a hidden class="log-btn" href=""></a>
-                        <a class="log-btn" href='agregar_imagenes.php'>Agregar Imagenes</a>
+                        <a class="log-btn" href='agregar_imagenes.php?id_album=<?php echo $id_album; ?>'>Agregar Imágenes</a>
                     </li>
                 </ul>
             </nav>
@@ -42,6 +56,14 @@
             <div class="gallery">
                 <?php while($imagen = mysqli_fetch_assoc($resultado)): ?>
                     <div class="imagen img-scale">
+
+                        <!-- PRUEBA DE BORRAR FOTOS -->
+                        <form class="btn-eliminar" method="POST">
+                            <input type="hidden" name="id" value="<?php echo $imagen["id"]; ?>">
+                            <input type="submit" value="Delete">
+                        </form>
+                        <!-- FIN PRUEBA DE BORRAR FOTOS -->
+
                         <img src="imagenes/<?php echo $imagen["src"] . ".jpg"; ?>">
                         <!-- <p class="imagen_txt"> <?php echo $imagen["descripcion"] ?> </p> -->
                     </div>

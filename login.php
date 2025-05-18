@@ -30,9 +30,6 @@
                 //verificar si el password existe o no
                 $auth = password_verify($password, $usuario['password']);
                 if($auth){
-                    //usuario autenticado
-                    // header('Location: indexUser.php');
-                    // exit;
 
                     session_start();
                     $_SESSION["usuario"] = $usuario['email'];

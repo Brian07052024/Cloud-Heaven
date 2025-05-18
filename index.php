@@ -1,11 +1,10 @@
 <?php
-    // var_dump($_SESSION);
-    require "includes/funciones.php";
-    $auth = estaAutenticado();
+    require "includes/funciones.php";//requerimos el archivo de funciones para hacer uso de estas
+    $auth = estaAutenticado();//usamos la funcion para ver si esta autenticado, si no, lo mandara al login...
     if(!$auth){
         header("Location: login.php");
     }
-    // var_dump($_SESSION);
+    
 
 
     require "config/database.php";
@@ -13,10 +12,6 @@
 
     $mensaje = $_GET["mensaje"] ?? null;
 
-    // echo "<pre>";
-    // var_dump($_GET);
-    // echo "</pre>";
-    
     require "includes/templates/header.php";
 
 ?>
@@ -24,10 +19,10 @@
             <nav class="navegacion-barra">
                 <ul>
                     <li class="index-nav">
-                        <a href="">Crear</a>
-                        <a href="">Albums</a>
-                        <a href="">Nosotros</a>
-                        <a href="">Cuenta</a>
+                        <a href="crear.php">Crear</a>
+                        <a href="albums.php">Albums</a>
+                        <a href="nosotros.php">Nosotros</a>
+                        <a href="cuenta.php">Cuenta</a>
                     </li>
                 </ul>
             </nav>

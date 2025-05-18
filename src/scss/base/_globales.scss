@@ -63,3 +63,21 @@ nav, ul, li, a, p{
 }
 
 //FIN QUITAR MARGENES Y PADDINGS
+
+.btn-eliminar{
+        position: absolute;
+        top: 0;
+        left: 0;
+        // margin: 1rem;
+        background-color: black;
+        border-radius: 1.6rem;
+        margin: 0.5rem;
+        
+        input{
+            color: v.$rojo;
+            border-radius: 2rem;
+            background-color: transparent;
+            border: none;
+            font-size: 1rem;
+        }
+    }
