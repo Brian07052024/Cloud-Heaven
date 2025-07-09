@@ -9,3 +9,4 @@ if (alerta) {
         alerta.remove();
     }, 5500); 
 }
+

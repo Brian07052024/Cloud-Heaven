@@ -31,11 +31,11 @@
         if(!$errores){//si no hay errores, entonces:
             //insertarlos a la db:
             $query = "INSERT INTO album (nombre, id_usuario) VALUES ('$nombre', '$id_usuario')";
-
             $resultado = mysqli_query($db, $query);
-
             if($resultado){
-                header('Location: index.php?mensaje=1');
+                $exito = "¡Álbum creado exitosamente!";
+            } else {
+                $errores[] = "Hubo un error al crear el álbum.";
             }
         }
   
@@ -44,6 +44,17 @@
 ?>
 
         <main class="main-crear">
+            <?php if(isset($exito)): ?>
+                <div class="exito" id="mensaje-exito">
+                    <?php echo $exito; ?>
+                </div>
+                <script>
+                setTimeout(function() {
+                    var msg = document.getElementById('mensaje-exito');
+                    if(msg) { msg.style.opacity = '0'; msg.style.transition = 'opacity 0.5s'; setTimeout(function(){msg.style.display = 'none';}, 500); }
+                }, 3000);
+                </script>
+            <?php endif; ?>
             <form class="forms contenedor" method="POST" action="crear.php">  
                 <fieldset>
                     <legend>Nuevo Album</legend>

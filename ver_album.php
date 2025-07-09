@@ -53,7 +53,7 @@ require "includes/templates/header.php";
 
     <div class="gallery">
         <?php while ($imagen = mysqli_fetch_assoc($resultado)): ?>
-            <div class="imagen img-scale">
+            <div id="imagen" class="imagen img-scale">
 
                
                 <form class="btn-eliminar" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas borrar esta imagen?');">
@@ -63,13 +63,14 @@ require "includes/templates/header.php";
                 
 
                 <img src="imagenes/<?php echo $imagen["src"] . ".jpg"; ?>">
-                <p class="desc-img"><?php echo $imagen["descripcion"] ?></p>
+                <p id="desc-img" class="desc-img display-none"><?php echo $imagen["descripcion"] ?></p>
               
             </div>
 
         <?php endwhile ?>
     </div>
 </main><!-- FIN MAIN -->
+<script src="./src/js/descripciones.js"></script>
 </body>
 
 </html>
