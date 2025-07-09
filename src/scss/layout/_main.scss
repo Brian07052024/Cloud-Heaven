@@ -18,6 +18,7 @@
 
 .index-nav{
     display: flex;
+    // justify-content: space-evenly;
     gap: 5rem;
     a{
         color: v.$blanco;
@@ -33,6 +34,7 @@
         // border-radius: 1rem;
         width: auto;
         height: 25rem;
+        border-radius: 1.6rem;
     }
 }
 
@@ -62,7 +64,7 @@
    
 }
 .img-scale{
-    
+    transition: 0.2s ease scale;
     &:hover{
         transition: 0.2s ease scale;
         scale: 0.95;
@@ -76,6 +78,8 @@
     border-radius: 2rem;
     padding: 0.8rem;
     a{
+        transition: 0.1s ease transform;
+
         &:hover{
             transition: 0.1s ease transform;
             transform: scale(1.1);

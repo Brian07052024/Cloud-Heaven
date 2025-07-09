@@ -18,11 +18,13 @@
                     display: flex;
                     align-items: center;
                     gap: 0.8rem;
-                    font-size: 1.5rem
+                    font-size: 1.5rem;
+                    transition: 0.1s ease transform;
+                    margin-left: 1rem;
                 }
                 a:hover{
                     transition: 0.1s ease transform;
-                    transform: scale(1.1);
+                    transform: scale(1.05);
                     &:last-child{
                         transform: scale(1)
                     }

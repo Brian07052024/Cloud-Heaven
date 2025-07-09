@@ -6,14 +6,19 @@
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
+
     .imagen{
         display: flex;
         flex-direction: column;
         width: min-content;
         position: relative;
+        border-radius: 1.6rem;
+
         img{
             width: auto;
             height: 25rem;
+            border-radius: 1.6rem;
+
             // &:hover{
             //     transition: 0.25s ease scale;
             //     scale: 1.05;

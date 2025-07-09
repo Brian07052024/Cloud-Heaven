@@ -59,6 +59,7 @@
             $resultado = mysqli_query($db, $query);
 
             if($resultado){
+                header("Location: albums.php");
                 echo "Insertado correctamente en la db";
             }
         }
