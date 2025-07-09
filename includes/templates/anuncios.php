@@ -1,5 +1,5 @@
 
-<h1>Spotify Top</h1>
+<h1>Los Artistas del momento</h1>
 <div class="carrusel-img">
     <?php 
         $query2 = "SELECT * FROM imagen WHERE id_album = 47"; 
@@ -10,7 +10,7 @@
         <img class="img-scale" src="imagenes/<?php echo $img2["src"] . ".jpg"; ?>">
     <?php endwhile; ?>
 </div>
-<h1>Anime</h1>
+<h1>Galeria Anime</h1>
 <div class="carrusel-img">
     <?php 
         $query = "SELECT * FROM imagen WHERE id_album = 53"; 

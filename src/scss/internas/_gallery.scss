@@ -1,20 +1,20 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
 
-.gallery{
+.gallery {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
 
-    .imagen{
+    .imagen {
         display: flex;
         flex-direction: column;
         width: min-content;
         position: relative;
         border-radius: 1.6rem;
 
-        img{
+        img {
             width: auto;
             height: 25rem;
             border-radius: 1.6rem;
@@ -24,13 +24,42 @@
             //     scale: 1.05;
             // }
         }
-        .imagen_txt{
+
+        .imagen_txt {
             color: v.$blanco;
             background-color: v.$negro;
             padding: 0.5rem;
-        }   
-    }
-    
-    
-}
+        }
 
+
+        .desc-img {
+            position: absolute;
+            z-index: 999;
+            opacity: 0;
+            width: 100%;
+            border-bottom-right-radius: 16px;
+            border-bottom-left-radius: 16px;
+            bottom: 0;
+            color: v.$blanco;
+            background: linear-gradient(to top, v.$negro 80%, rgba(0, 0, 0, 0) 100%);
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+            transform: translateY(30%);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .img-container {
+            position: relative;
+
+            &:hover .desc-img {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+    }
+
+
+}

@@ -8,7 +8,7 @@ if (!$auth) {
 require "config/database.php";
 $db = conectarDB();
 $id_album = intval($_GET["id_album"]);
-// var_dump($id_album);//2020202022 visooooooooooooon
+
 
 
 
@@ -55,15 +55,16 @@ require "includes/templates/header.php";
         <?php while ($imagen = mysqli_fetch_assoc($resultado)): ?>
             <div class="imagen img-scale">
 
-                <!-- PRUEBA DE BORRAR FOTOS -->
+               
                 <form class="btn-eliminar" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas borrar esta imagen?');">
                     <input type="hidden" name="id" value="<?php echo $imagen["id"]; ?>">
                     <input type="submit" value="Delete">
                 </form>
-                <!-- FIN PRUEBA DE BORRAR FOTOS -->
+                
 
                 <img src="imagenes/<?php echo $imagen["src"] . ".jpg"; ?>">
-                <!-- <p class="imagen_txt"> <?php echo $imagen["descripcion"] ?> </p> -->
+                <p class="desc-img"><?php echo $imagen["descripcion"] ?></p>
+              
             </div>
 
         <?php endwhile ?>
